@@ -1,0 +1,20 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'CoolCollege_SDK_demo_api' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # WebView交互需要
+  pod 'dsBridge', :git => 'https://github.com/ZhenTs/DSBridge-IOS.git'
+
+  # CoolCollegeApiSDK需要
+  pod 'BSImagePicker', '~> 3.1'
+  pod 'MBProgressHUD', '<=0.9.2'
+  pod 'AFNetworking', '~> 4.0'
+  pod 'AliyunOSSiOS', '<=2.10.10'
+  pod 'VODUpload', '<=1.6.1'
+
+  # Pods for CoolCollege_SDK_demo_api
+
+end

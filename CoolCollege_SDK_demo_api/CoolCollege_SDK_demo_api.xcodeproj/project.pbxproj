@@ -14,9 +14,12 @@
 		8372781E2853158C003AA791 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8372781D2853158C003AA791 /* Assets.xcassets */; };
 		837278212853158C003AA791 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8372781F2853158C003AA791 /* LaunchScreen.storyboard */; };
 		837278242853158C003AA791 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 837278232853158C003AA791 /* main.m */; };
+		E207BAF107E9B3AE1E3B588B /* Pods_CoolCollege_SDK_demo_api.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D40804AC7F8597B8BDC3136 /* Pods_CoolCollege_SDK_demo_api.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E8C32266320CCFEEEF80646 /* Pods-CoolCollege_SDK_demo_api.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoolCollege_SDK_demo_api.release.xcconfig"; path = "Target Support Files/Pods-CoolCollege_SDK_demo_api/Pods-CoolCollege_SDK_demo_api.release.xcconfig"; sourceTree = "<group>"; };
+		6D40804AC7F8597B8BDC3136 /* Pods_CoolCollege_SDK_demo_api.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoolCollege_SDK_demo_api.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8372780E28531589003AA791 /* CoolCollege_SDK_demo_api.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoolCollege_SDK_demo_api.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8372781128531589003AA791 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8372781228531589003AA791 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -29,6 +32,7 @@
 		837278202853158C003AA791 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		837278222853158C003AA791 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		837278232853158C003AA791 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A8128B9FBB550629EEA51420 /* Pods-CoolCollege_SDK_demo_api.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoolCollege_SDK_demo_api.debug.xcconfig"; path = "Target Support Files/Pods-CoolCollege_SDK_demo_api/Pods-CoolCollege_SDK_demo_api.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,17 +40,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E207BAF107E9B3AE1E3B588B /* Pods_CoolCollege_SDK_demo_api.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4EF3637F7A68A105EB97CF56 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6D40804AC7F8597B8BDC3136 /* Pods_CoolCollege_SDK_demo_api.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8372780528531589003AA791 = {
 			isa = PBXGroup;
 			children = (
 				8372781028531589003AA791 /* CoolCollege_SDK_demo_api */,
 				8372780F28531589003AA791 /* Products */,
+				E3C1E2FDA76350037A515904 /* Pods */,
+				4EF3637F7A68A105EB97CF56 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,6 +91,16 @@
 			path = CoolCollege_SDK_demo_api;
 			sourceTree = "<group>";
 		};
+		E3C1E2FDA76350037A515904 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A8128B9FBB550629EEA51420 /* Pods-CoolCollege_SDK_demo_api.debug.xcconfig */,
+				1E8C32266320CCFEEEF80646 /* Pods-CoolCollege_SDK_demo_api.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -83,9 +108,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 837278272853158C003AA791 /* Build configuration list for PBXNativeTarget "CoolCollege_SDK_demo_api" */;
 			buildPhases = (
+				A9D78186F255533C91220985 /* [CP] Check Pods Manifest.lock */,
 				8372780A28531589003AA791 /* Sources */,
 				8372780B28531589003AA791 /* Frameworks */,
 				8372780C28531589003AA791 /* Resources */,
+				31103CE569F14B29801C76BF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -140,6 +167,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		31103CE569F14B29801C76BF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CoolCollege_SDK_demo_api/Pods-CoolCollege_SDK_demo_api-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CoolCollege_SDK_demo_api/Pods-CoolCollege_SDK_demo_api-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CoolCollege_SDK_demo_api/Pods-CoolCollege_SDK_demo_api-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A9D78186F255533C91220985 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CoolCollege_SDK_demo_api-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8372780A28531589003AA791 /* Sources */ = {
@@ -289,6 +358,7 @@
 		};
 		837278282853158C003AA791 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8128B9FBB550629EEA51420 /* Pods-CoolCollege_SDK_demo_api.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -317,6 +387,7 @@
 		};
 		837278292853158C003AA791 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E8C32266320CCFEEEF80646 /* Pods-CoolCollege_SDK_demo_api.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
