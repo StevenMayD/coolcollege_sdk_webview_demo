@@ -2,6 +2,22 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>App需要您的同意，才能访问相册，用于拍摄和扫描二维码</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>App需要您的同意，才能访问相册，用于拍摄和扫描二维码</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>App需要您的同意，才能访问麦克风，用于拍摄和录制音,视频</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>App需要您的同意，才能在使用期间访问位置</string>
+	<key>NSLocationUsageDescription</key>
+	<string>App需要您的同意，才能访问位置</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>App需要您的同意，才能始终访问位置</string>
+	<key>NSCameraUsageDescription</key>
+	<string>App需要您的同意，才能访问相机，用于拍摄和扫描二维码</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>App需要您的同意，才能访问媒体资料库</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

@@ -6,7 +6,10 @@
 //
 
 #import "ViewController.h"
+// 交互webview
 #import <dsBridge/DWKWebView.h>
+// CoolCollegeApiSDK调用
+#import <CoolCollegeApiSDK/CoolCollegeApiSDKHeader.h>
 
 // 主要是用于区分是否是 刘海屏
 #define isXSeriesPhone \
@@ -67,6 +70,210 @@ if (216 == notchValue || 46 == notchValue) {\
     [self.webView addObserver:self forKeyPath: @"canGoBack" options: NSKeyValueObservingOptionNew context: NULL];
 }
 
+// 前端交互方法nativeEvent
+- (void)nativeEvent:(NSDictionary*)msgDict :(JSCallback)completionHandler {
+    if (msgDict) {
+        NSString* methodName = msgDict[@"methodName"];
+        if (methodName) {
+            NSString* methodData = msgDict[@"methodData"];
+            NSData *data = [methodData dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
+            NSDictionary* methodDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+            if (methodName && [methodName isEqualToString:@"chooseImage"]) {
+                [self chooseImage:methodDict callback:completionHandler];
+            } else if (methodName && [methodName isEqualToString:@"chooseVideo"]) {
+                [self chooseVideo:methodDict callback:completionHandler];
+            } else if (methodName && [methodName isEqualToString:@"uploadFile"]) {
+                [self uploadFile:methodDict callback:completionHandler];
+            } else if (methodName && [methodName isEqualToString:@"startAudioRecord"]) {
+                [self startAudioRecord:methodDict callback:completionHandler];
+            } else if (methodName && [methodName isEqualToString:@"startVideoRecord"]) {
+                [self startVideoRecord:methodDict callback:completionHandler];
+            } else if (methodName && [methodName isEqualToString:@"OSSUploadFile"]) {
+                [self OSSUploadFile:methodDict callback:completionHandler];
+            } else if (methodName && [methodName isEqualToString:@"shareMenu"]) {
+                [self shareMenu:methodDict callback:completionHandler];
+            } else {
+                
+            }
+        }
+    }
+}
+
+// 选择图片(相册/相机)
+- (void)chooseImage:(NSDictionary*)methodDict callback:(JSCallback)completionHandler {
+    int compressed = [methodDict[@"compressed"] intValue];
+    int count = [methodDict[@"count"] intValue];
+    NSArray* sourceTypeArr = methodDict[@"sourceType"];
+    if (sourceTypeArr) {
+        if (sourceTypeArr.count == 1) {
+            NSString* sourceType = sourceTypeArr[0];
+            if ([sourceType isEqualToString:@"album"]) {
+                [CoolCollegeApiManager getImageByAlbumCompressed:compressed count:count controller:self successCallback:^(NSArray * _Nonnull files) {
+                    [self onSuccess:completionHandler result:files];
+                } failCallback:^(NSString * _Nonnull message) {
+                    [self onFail:completionHandler error:message];
+                }];
+            } else if ([sourceType isEqualToString:@"camera"]) {
+                [CoolCollegeApiManager getImageByCameraCompressed:compressed controller:self successCallback:^(NSArray * _Nonnull files) {
+                    [self onSuccess:completionHandler result:files];
+                } failCallback:^(NSString * _Nonnull message) {
+                    [self onFail:completionHandler error:message];
+                }];
+            } else {}
+        } else if (sourceTypeArr.count == 2) {
+            [ViewController presentActionSheetWithController:self title:nil message:nil
+                                                    sheetOne:@"相册"
+                                                    sheetTwo:@"相机"
+                                                 sheetBottom:@"取消"
+                                            sheetOneCallback:^{
+                [CoolCollegeApiManager getImageByAlbumCompressed:compressed count:count controller:self successCallback:^(NSArray * _Nonnull files) {
+                    [self onSuccess:completionHandler result:files];
+                } failCallback:^(NSString * _Nonnull message) {
+                    [self onFail:completionHandler error:message];
+                }];
+            } sheetTwoCallback:^{
+                [CoolCollegeApiManager getImageByCameraCompressed:compressed controller:self successCallback:^(NSArray * _Nonnull files) {
+                    [self onSuccess:completionHandler result:files];
+                } failCallback:^(NSString * _Nonnull message) {
+                    [self onFail:completionHandler error:message];
+                }];
+            }];
+        } else {
+            return;
+        }
+    }
+}
+
+// 选择视频(相册/相机)
+- (void)chooseVideo:(NSDictionary*)methodDict callback:(JSCallback)completionHandler {
+    int compressed = [methodDict[@"compressed"] intValue]?[methodDict[@"compressed"] intValue]:1;
+    int count = [methodDict[@"count"] intValue]?[methodDict[@"count"] intValue]:1;
+    int maxDuration = [methodDict[@"maxDuration"] intValue];
+    NSArray* sourceTypeArr = methodDict[@"sourceType"];
+    if (sourceTypeArr) {
+        if (sourceTypeArr.count == 1) {
+            NSString* sourceType = sourceTypeArr[0];
+            if ([sourceType isEqualToString:@"album"]) {
+                [CoolCollegeApiManager getVideoByAlbumCompressed:compressed count:count maxDuration:maxDuration controller:self successCallback:^(NSArray * _Nonnull files) {
+                    [self onSuccess:completionHandler result:files];
+                } failCallback:^(NSString * _Nonnull message) {
+                    [self onFail:completionHandler error:message];
+                }];
+            } else if ([sourceType isEqualToString:@"camera"]) {
+                [CoolCollegeApiManager getVideoByCameraCompressed:compressed maxDuration:maxDuration controller:self successCallback:^(NSArray * _Nonnull files) {
+                    [self onSuccess:completionHandler result:files];
+                } failCallback:^(NSString * _Nonnull message) {
+                    [self onFail:completionHandler error:message];
+                }];
+            } else {}
+        } else if (sourceTypeArr.count == 2) {
+            [ViewController presentActionSheetWithController:self title:nil message:nil
+                                                    sheetOne:@"相册"
+                                                    sheetTwo:@"相机"
+                                                 sheetBottom:@"取消"
+                                            sheetOneCallback:^{
+                [CoolCollegeApiManager getVideoByAlbumCompressed:compressed count:count maxDuration:maxDuration controller:self successCallback:^(NSArray * _Nonnull files) {
+                    [self onSuccess:completionHandler result:files];
+                } failCallback:^(NSString * _Nonnull message) {
+                    [self onFail:completionHandler error:message];
+                }];
+            } sheetTwoCallback:^{
+                [CoolCollegeApiManager getVideoByCameraCompressed:compressed maxDuration:maxDuration controller:self successCallback:^(NSArray * _Nonnull files) {
+                    [self onSuccess:completionHandler result:files];
+                } failCallback:^(NSString * _Nonnull message) {
+                    [self onFail:completionHandler error:message];
+                }];
+            }];
+        } else {
+            return;
+        }
+    }
+}
+
+// 录制音频
+- (void)startAudioRecord:(NSDictionary*)methodData callback:(JSCallback)completionHandler {
+    int maxDuration = [(methodData[@"maxDuration"]?:@(60)) intValue];
+    [CoolCollegeApiManager startAudioRecord:maxDuration controller:self successCallback:^(NSDictionary * _Nonnull files) {
+        [self onSuccess:completionHandler result:files];
+    } failCallback:^(NSString * _Nonnull message) {
+        [self onFail:completionHandler error:message];
+    }];
+}
+
+// 录制视频
+- (void)startVideoRecord:(NSDictionary*)methodDict callback:(JSCallback)completionHandler {
+    int maxDuration = [methodDict[@"maxDuration"] intValue];
+    [CoolCollegeApiManager getVideoByCameraCompressed:1 maxDuration:maxDuration controller:self successCallback:^(NSArray * _Nonnull files) {
+        [self onSuccess:completionHandler result:files];
+    } failCallback:^(NSString * _Nonnull message) {
+        [self onFail:completionHandler error:message];
+    }];
+}
+
+
+// 通用文件上传
+- (void)uploadFile:(NSDictionary*)methodDict callback:(JSCallback)completionHandler {
+    NSDictionary* uploadInfo = @{@"filePath":methodDict[@"filePath"]?:@"",
+                                 @"fileType":methodDict[@"fileType"]?:@"",
+                                 @"formData":methodDict[@"formData"]?:@{},
+                                 @"name":methodDict[@"name"]?:@"",
+                                 @"url":methodDict[@"url"]?:@"",
+                                 @"header":methodDict[@"header"]?:@{}};
+    [CoolCollegeApiManager uploadFile:uploadInfo controller:self successCallback:^(NSDictionary * _Nonnull response) {
+        NSError *error;
+        NSData *data=[NSJSONSerialization dataWithJSONObject:response options:NSJSONWritingPrettyPrinted error:&error];
+        NSString *jsonStr=[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+        
+        [self onSuccess:completionHandler result:jsonStr];
+    } failCallback:^(NSString * _Nonnull message) {
+        [self onFail:completionHandler error:message];
+    }];
+}
+
+// OSS文件上传
+- (void)OSSUploadFile:(NSDictionary*)methodDict callback:(JSCallback)completionHandler {
+    // accessToken与enterpriseId由原生提供
+    NSDictionary* uploadInfo = @{@"files":methodDict[@"files"],
+                                 @"type":methodDict[@"type"],
+                                 @"accessToken":@"43707c097bdd4302a8b745d72b7381b8",
+                                 @"enterpriseId":@"1324923316665978965"};
+    
+    [CoolCollegeApiManager OSSUploadFile:uploadInfo controller:self successCallback:^(NSArray * _Nonnull files) {
+        [self onSuccess:completionHandler result:files];
+    } failCallback:^(NSDictionary * _Nonnull error) {
+        [self onFail:completionHandler error:error];
+    }];
+}
+
+// 唤起分享弹窗
+- (void)shareMenu:(NSDictionary*)methodData callback:(JSCallback)completionHandler {
+    NSDictionary* shareInfo = @{@"logo":methodData[@"logo"]?:@"",
+                                @"title":methodData[@"title"]?:@"",
+                                @"url":methodData[@"url"]?:@""};
+    
+    [CoolCollegeApiManager shareUniversal:shareInfo controller:self callback:^(NSString * _Nonnull type, BOOL completed) {
+        NSString* shareState = completed?@"success":@"cancel";
+        NSDictionary* paramDict = @{@"platformType":type, @"shareState":shareState};
+        [self onSuccess:completionHandler result:paramDict];
+    }];
+}
+
+- (void)onSuccess:(JSCallback)callback result:(id)result {
+    NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
+    [dictionary setValue:result forKey:@"result"];
+    NSData *data=[NSJSONSerialization dataWithJSONObject:dictionary options:NSJSONWritingPrettyPrinted error:nil];
+    NSString *jsonStr=[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+    callback(jsonStr,YES);
+}
+
+- (void)onFail:(JSCallback)callback error:(id)error {
+    NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
+    [dictionary setValue:[NSNumber numberWithBool:YES] forKey:@"isError"];
+    [dictionary setValue:error forKey:@"error"];
+    NSData *data=[NSJSONSerialization dataWithJSONObject:dictionary options:NSJSONWritingPrettyPrinted error:nil];
+    NSString *jsonStr=[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+    callback(jsonStr,NO);
+}
 
 // 在发送请求之前，决定是否跳转
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
@@ -116,5 +323,36 @@ if (216 == notchValue || 46 == notchValue) {\
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
 }
+
++ (void)presentActionSheetWithController:(UIViewController*)controller
+                                   title:(nullable NSString*)title
+                                 message:(nullable NSString*)message
+                                sheetOne:(nullable NSString*)sheetOne
+                                sheetTwo:(NSString*)sheetTwo
+                             sheetBottom:(NSString*)sheetBottom
+                        sheetOneCallback:(void(^)(void))oneCallback
+                        sheetTwoCallback:(void(^)(void))twoCallback {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
+                                                                             message:message
+                                                                      preferredStyle:UIAlertControllerStyleActionSheet];
+    if (sheetOne) {
+        UIAlertAction* sheetOneAction = [UIAlertAction actionWithTitle:sheetOne style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            oneCallback();
+        }];
+        [alertController addAction:sheetOneAction];
+    }
+    
+    UIAlertAction* sheetTwoAction = [UIAlertAction actionWithTitle:sheetTwo style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        twoCallback();
+    }];
+    [alertController addAction:sheetTwoAction];
+    
+    UIAlertAction* sheetBottomAction = [UIAlertAction actionWithTitle:sheetBottom style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {}];
+    [alertController addAction:sheetBottomAction];
+    
+    [controller presentViewController:alertController animated:YES completion:nil];
+    return;
+}
+
 
 @end
