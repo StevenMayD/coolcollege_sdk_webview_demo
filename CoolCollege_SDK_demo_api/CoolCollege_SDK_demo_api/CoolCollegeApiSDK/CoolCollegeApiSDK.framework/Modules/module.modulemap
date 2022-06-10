@@ -1,0 +1,4 @@
+framework module CoolCollegeApiSDK {
+  header "CoolCollegeApiSDK-Swift.h"
+  requires objc
+}
