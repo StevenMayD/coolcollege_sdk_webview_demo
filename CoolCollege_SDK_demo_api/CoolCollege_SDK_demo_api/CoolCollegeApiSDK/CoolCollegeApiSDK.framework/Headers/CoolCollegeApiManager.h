@@ -121,6 +121,22 @@ NS_ASSUME_NONNULL_BEGIN
             controller:(UIViewController*)controller
               callback:(void(^)(NSString* type, BOOL completed))callback;
 
+/// 扫描二维码
+/// @param controller 调用方视图控制器
+/// @param success 成功回调 扫描识别结果
+/// @param fail 失败回调  失败信息
++ (void)scanWithController:(UIViewController*)controller
+           successCallback:(void(^)(NSString* result))success
+              failCallback:(void(^)(NSString* message))fail;
+
+/// 获取定位信息
+/// @param controller 调用方视图控制器
+/// @param success 成功回调 扫描识别结果
+/// @param fail 失败回调  失败信息
+- (void)getLocationWithController:(UIViewController*)controller
+                  successCallback:(void(^)(NSDictionary* info))success
+                     failCallback:(void(^)(NSString* message))fail;
+
 @end
 
 NS_ASSUME_NONNULL_END

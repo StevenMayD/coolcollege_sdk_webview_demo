@@ -14,6 +14,9 @@ target 'CoolCollege_SDK_demo_api' do
   pod 'AFNetworking', '~> 4.0'
   pod 'AliyunOSSiOS', '<=2.10.10'
   pod 'VODUpload', '<=1.6.1'
+  pod 'LBXScan/LBXNative','~> 2.5.1'
+  pod 'LBXScan/UI', '~> 2.5.1'
+
 
   # Pods for CoolCollege_SDK_demo_api
 

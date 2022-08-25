@@ -33,13 +33,17 @@
 		<data>
 		MAqksE1gXaHYMtREIJL7Tlv1Tfo=
 		</data>
+		<key>CoolCollegeApiSDKImage.bundle/qrcode_scan_full_net.png</key>
+		<data>
+		J7nq2non0Ecm2cnsdxwtWj13guU=
+		</data>
 		<key>Headers/CoolCollegeApiManager.h</key>
 		<data>
-		xW8aORswLOfPrxjvilrlPtDzHF0=
+		vX8O9BM1GW8tmdc/SGvsQQUuggc=
 		</data>
 		<key>Headers/CoolCollegeApiSDK-Swift.h</key>
 		<data>
-		h+AgwkW6jSYutihWQw4MZSsV2BU=
+		OcyGszYlnUJb8OtK51hxYioZYYY=
 		</data>
 		<key>Headers/CoolCollegeApiSDKHeader.h</key>
 		<data>
@@ -47,7 +51,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		6ybmhTtnLGa3MAlZq/5VFwu6SSw=
+		E1kb2/SS2RVjXz9blVTL7V8ydjg=
+		</data>
+		<key>Modules/CoolCollegeApiSDK.swiftmodule/Project/arm.swiftsourceinfo</key>
+		<data>
+		oRNRGL7mXpKcG5zA21aU6rKjtJc=
 		</data>
 		<key>Modules/CoolCollegeApiSDK.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
@@ -57,13 +65,29 @@
 		<data>
 		P+O4evfZC+NQs10sh6RY15y59Sk=
 		</data>
+		<key>Modules/CoolCollegeApiSDK.swiftmodule/Project/armv7-apple-ios.swiftsourceinfo</key>
+		<data>
+		oRNRGL7mXpKcG5zA21aU6rKjtJc=
+		</data>
+		<key>Modules/CoolCollegeApiSDK.swiftmodule/Project/armv7.swiftsourceinfo</key>
+		<data>
+		oRNRGL7mXpKcG5zA21aU6rKjtJc=
+		</data>
+		<key>Modules/CoolCollegeApiSDK.swiftmodule/arm.swiftdoc</key>
+		<data>
+		QF0bS8xN2QEG3Gq27LWxKVTzF5Q=
+		</data>
+		<key>Modules/CoolCollegeApiSDK.swiftmodule/arm.swiftmodule</key>
+		<data>
+		FG8Yvu3WenX0BNZjf4dQ+tt2ILs=
+		</data>
 		<key>Modules/CoolCollegeApiSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
 		cbfSgYghuuLJI6pF6ZV5NQ6l4Fs=
 		</data>
 		<key>Modules/CoolCollegeApiSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		BvorOnl1e4WOSX02I/pxKoWX3fM=
+		t5wMfxQUGULRYEpryWe+CaxoG70=
 		</data>
 		<key>Modules/CoolCollegeApiSDK.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -71,7 +95,23 @@
 		</data>
 		<key>Modules/CoolCollegeApiSDK.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		BvorOnl1e4WOSX02I/pxKoWX3fM=
+		t5wMfxQUGULRYEpryWe+CaxoG70=
+		</data>
+		<key>Modules/CoolCollegeApiSDK.swiftmodule/armv7-apple-ios.swiftdoc</key>
+		<data>
+		QF0bS8xN2QEG3Gq27LWxKVTzF5Q=
+		</data>
+		<key>Modules/CoolCollegeApiSDK.swiftmodule/armv7-apple-ios.swiftmodule</key>
+		<data>
+		FG8Yvu3WenX0BNZjf4dQ+tt2ILs=
+		</data>
+		<key>Modules/CoolCollegeApiSDK.swiftmodule/armv7.swiftdoc</key>
+		<data>
+		QF0bS8xN2QEG3Gq27LWxKVTzF5Q=
+		</data>
+		<key>Modules/CoolCollegeApiSDK.swiftmodule/armv7.swiftmodule</key>
+		<data>
+		FG8Yvu3WenX0BNZjf4dQ+tt2ILs=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -156,26 +196,37 @@
 			mjEkwURkerNsi4r6SuVIswrlHoSQKp4FMBqoRPLZl/s=
 			</data>
 		</dict>
+		<key>CoolCollegeApiSDKImage.bundle/qrcode_scan_full_net.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			J7nq2non0Ecm2cnsdxwtWj13guU=
+			</data>
+			<key>hash2</key>
+			<data>
+			lowLR5CPV6YtQX9CN4FEC5GtUaaeTT42QXRL7ue9nqk=
+			</data>
+		</dict>
 		<key>Headers/CoolCollegeApiManager.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			xW8aORswLOfPrxjvilrlPtDzHF0=
+			vX8O9BM1GW8tmdc/SGvsQQUuggc=
 			</data>
 			<key>hash2</key>
 			<data>
-			Lm0dDH7PN8pqfIv3H+9DHR98qFvOFnRS6VDKWxNbBOQ=
+			n2ux7mt027XDNicAWwZgZJoysbGs/I8QeDVzlBUI1PI=
 			</data>
 		</dict>
 		<key>Headers/CoolCollegeApiSDK-Swift.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			h+AgwkW6jSYutihWQw4MZSsV2BU=
+			OcyGszYlnUJb8OtK51hxYioZYYY=
 			</data>
 			<key>hash2</key>
 			<data>
-			icXZ9ZmWk3ohcN0m/jzikq+HgzELNy2/Q5eds97ayoI=
+			ICQmOo+btY3VcAvfQAc5Ffgj/Lgbj4F7B4/WFnI2PAw=
 			</data>
 		</dict>
 		<key>Headers/CoolCollegeApiSDKHeader.h</key>
@@ -187,6 +238,17 @@
 			<key>hash2</key>
 			<data>
 			5v+4NxaSCUa9q/SZ4UPK6DZpEmdMugztFNNlnWRYpz8=
+			</data>
+		</dict>
+		<key>Modules/CoolCollegeApiSDK.swiftmodule/Project/arm.swiftsourceinfo</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			oRNRGL7mXpKcG5zA21aU6rKjtJc=
+			</data>
+			<key>hash2</key>
+			<data>
+			qJ0optmzrHjJonqJ5zkNeBRiwpD95NDvzmG0OfTwEkA=
 			</data>
 		</dict>
 		<key>Modules/CoolCollegeApiSDK.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
@@ -211,6 +273,50 @@
 			mCukRmTTO/rnGDmqmCL5cNibNLQA3jTVCnpocnSMbL0=
 			</data>
 		</dict>
+		<key>Modules/CoolCollegeApiSDK.swiftmodule/Project/armv7-apple-ios.swiftsourceinfo</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			oRNRGL7mXpKcG5zA21aU6rKjtJc=
+			</data>
+			<key>hash2</key>
+			<data>
+			qJ0optmzrHjJonqJ5zkNeBRiwpD95NDvzmG0OfTwEkA=
+			</data>
+		</dict>
+		<key>Modules/CoolCollegeApiSDK.swiftmodule/Project/armv7.swiftsourceinfo</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			oRNRGL7mXpKcG5zA21aU6rKjtJc=
+			</data>
+			<key>hash2</key>
+			<data>
+			qJ0optmzrHjJonqJ5zkNeBRiwpD95NDvzmG0OfTwEkA=
+			</data>
+		</dict>
+		<key>Modules/CoolCollegeApiSDK.swiftmodule/arm.swiftdoc</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			QF0bS8xN2QEG3Gq27LWxKVTzF5Q=
+			</data>
+			<key>hash2</key>
+			<data>
+			PqjZO0Cz72QPHwwzyavVPxM67CitutLq2o4Fan/njAA=
+			</data>
+		</dict>
+		<key>Modules/CoolCollegeApiSDK.swiftmodule/arm.swiftmodule</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			FG8Yvu3WenX0BNZjf4dQ+tt2ILs=
+			</data>
+			<key>hash2</key>
+			<data>
+			Q/1Q8vUUKq+DCi02iYd5cEK2n5p/+4+nDhmN5yHBjpw=
+			</data>
+		</dict>
 		<key>Modules/CoolCollegeApiSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash</key>
@@ -226,11 +332,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			BvorOnl1e4WOSX02I/pxKoWX3fM=
+			t5wMfxQUGULRYEpryWe+CaxoG70=
 			</data>
 			<key>hash2</key>
 			<data>
-			ZAHFzxy4MGCxU5nLIVVzmxDnE1pFF2OXTKUM1FaLSy8=
+			70I7nUt+Ms7KgUwfIIMgwQZpsytwGD4Ou24nAJrIDJk=
 			</data>
 		</dict>
 		<key>Modules/CoolCollegeApiSDK.swiftmodule/arm64.swiftdoc</key>
@@ -248,11 +354,55 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			BvorOnl1e4WOSX02I/pxKoWX3fM=
+			t5wMfxQUGULRYEpryWe+CaxoG70=
 			</data>
 			<key>hash2</key>
 			<data>
-			ZAHFzxy4MGCxU5nLIVVzmxDnE1pFF2OXTKUM1FaLSy8=
+			70I7nUt+Ms7KgUwfIIMgwQZpsytwGD4Ou24nAJrIDJk=
+			</data>
+		</dict>
+		<key>Modules/CoolCollegeApiSDK.swiftmodule/armv7-apple-ios.swiftdoc</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			QF0bS8xN2QEG3Gq27LWxKVTzF5Q=
+			</data>
+			<key>hash2</key>
+			<data>
+			PqjZO0Cz72QPHwwzyavVPxM67CitutLq2o4Fan/njAA=
+			</data>
+		</dict>
+		<key>Modules/CoolCollegeApiSDK.swiftmodule/armv7-apple-ios.swiftmodule</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			FG8Yvu3WenX0BNZjf4dQ+tt2ILs=
+			</data>
+			<key>hash2</key>
+			<data>
+			Q/1Q8vUUKq+DCi02iYd5cEK2n5p/+4+nDhmN5yHBjpw=
+			</data>
+		</dict>
+		<key>Modules/CoolCollegeApiSDK.swiftmodule/armv7.swiftdoc</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			QF0bS8xN2QEG3Gq27LWxKVTzF5Q=
+			</data>
+			<key>hash2</key>
+			<data>
+			PqjZO0Cz72QPHwwzyavVPxM67CitutLq2o4Fan/njAA=
+			</data>
+		</dict>
+		<key>Modules/CoolCollegeApiSDK.swiftmodule/armv7.swiftmodule</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			FG8Yvu3WenX0BNZjf4dQ+tt2ILs=
+			</data>
+			<key>hash2</key>
+			<data>
+			Q/1Q8vUUKq+DCi02iYd5cEK2n5p/+4+nDhmN5yHBjpw=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
