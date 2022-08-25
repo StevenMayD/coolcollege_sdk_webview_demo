@@ -35,6 +35,7 @@ if (216 == notchValue || 46 == notchValue) {\
 
 @interface ViewController () <WKNavigationDelegate, WKUIDelegate>
 @property (strong, nonatomic) DWKWebView *webView;
+@property (nonatomic, strong) CoolCollegeApiManager* manager;
 @end
 
 @implementation ViewController
@@ -43,6 +44,8 @@ if (216 == notchValue || 46 == notchValue) {\
     [super viewDidLoad];
     
     [self createWebView];
+    
+    self.manager = [[CoolCollegeApiManager alloc] init];
 }
 
 - (void)createWebView {
@@ -92,8 +95,13 @@ if (216 == notchValue || 46 == notchValue) {\
                 [self OSSUploadFile:methodDict callback:completionHandler];
             } else if (methodName && [methodName isEqualToString:@"shareMenu"]) {
                 [self shareMenu:methodDict callback:completionHandler];
+            } else if (methodName && [methodName isEqualToString:@"scan"]) {
+                [self scan:methodDict callback:completionHandler];
+            } else if (methodName && [methodName isEqualToString:@"getLocation"]) {
+                [self getLocation:methodDict callback:completionHandler];
             } else {
-                
+                NSString* errorMsg = [NSString stringWithFormat:@"%@ unimplemented", methodName];
+                [self onFail:completionHandler error:errorMsg];
             }
         }
     }
@@ -255,6 +263,29 @@ if (216 == notchValue || 46 == notchValue) {\
         NSString* shareState = completed?@"success":@"cancel";
         NSDictionary* paramDict = @{@"platformType":type, @"shareState":shareState};
         [self onSuccess:completionHandler result:paramDict];
+    }];
+}
+
+// 扫描二维码
+- (void)scan:(NSDictionary*)methodData callback:(JSCallback)completionHandler {
+    [CoolCollegeApiManager scanWithController:self successCallback:^(NSString * _Nonnull result) {
+        [self onSuccess:completionHandler result:result];
+    } failCallback:^(NSString * _Nonnull message) {
+        [self onFail:completionHandler error:message];
+    }];
+}
+
+// 获取定位信息
+- (void)getLocation:(NSDictionary*)methodData callback:(JSCallback)completionHandler {
+    [self.manager getLocationWithController:self successCallback:^(NSDictionary * _Nonnull info) {
+        NSError *error;
+        NSData *locationData = [NSJSONSerialization dataWithJSONObject:info
+                                                           options:NSJSONWritingPrettyPrinted
+                                                             error:&error];
+        NSString* locationJsonParam = [[NSString alloc] initWithData:locationData encoding:NSUTF8StringEncoding];
+        [self onSuccess:completionHandler result:locationJsonParam];
+    } failCallback:^(NSString * _Nonnull message) {
+        [self onFail:completionHandler error:message];
     }];
 }
 
