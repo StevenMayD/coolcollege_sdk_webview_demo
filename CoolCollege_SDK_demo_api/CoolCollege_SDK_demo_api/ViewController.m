@@ -7,9 +7,11 @@
 
 #import "ViewController.h"
 // 交互webview
-#import <dsBridge/DWKWebView.h>
+#import <dsbridge/DWKWebView.h>
 // CoolCollegeApiSDK调用
 #import <CoolCollegeApiSDK/CoolCollegeApiSDKHeader.h>
+
+#import "scan/ScanHandler.h"
 
 // 主要是用于区分是否是 刘海屏
 #define isXSeriesPhone \
@@ -32,6 +34,7 @@ if (216 == notchValue || 46 == notchValue) {\
 #define kNavStatusHeight (kNavHeight+kStatusBarHeight)
 
 #define CoolCollegeDemoH5 @"https://gsdn.coolcollege.cn/assets/h5-photo-camera/index.html"
+//#define CoolCollegeDemoH5 @"https://app.coolcollege.cn/?token=zKpCwDQMivdtzA6VDdCWy0bdhwd7R0/HjTM63bzx3cBjyUwbws0l51sNrcFZwIkb"
 
 @interface ViewController () <WKNavigationDelegate, WKUIDelegate>
 @property (strong, nonatomic) DWKWebView *webView;
@@ -60,6 +63,7 @@ if (216 == notchValue || 46 == notchValue) {\
     self.webView.allowsBackForwardNavigationGestures=NO;
     self.webView.DSUIDelegate = self;
     [self.webView addJavascriptObject:self namespace:@"local"];
+    [[ScanHandler shareInstance] initHandler:self.webView vc:self];
     
     if(@available(iOS 11.0, *)) {
         self.webView.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
