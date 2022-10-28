@@ -33,8 +33,8 @@ if (216 == notchValue || 46 == notchValue) {\
 /*状态栏高度+导航栏高度*/
 #define kNavStatusHeight (kNavHeight+kStatusBarHeight)
 
-#define CoolCollegeDemoH5 @"https://gsdn.coolcollege.cn/assets/h5-photo-camera/index.html"
-//#define CoolCollegeDemoH5 @"https://app.coolcollege.cn/?token=zKpCwDQMivdtzA6VDdCWy0bdhwd7R0/HjTM63bzx3cBjyUwbws0l51sNrcFZwIkb"
+//#define CoolCollegeDemoH5 @"https://gsdn.coolcollege.cn/assets/h5-photo-camera/index.html" // 前端demo页
+#define CoolCollegeDemoH5 @"https://app.coolcollege.cn?token=zKpCwDQMivdtzA6VDdCWy0bdhwd7R0/HjTM63bzx3cBjyUwbws0l51sNrcFZwIkb" // 客户线上链接
 
 @interface ViewController () <WKNavigationDelegate, WKUIDelegate>
 @property (strong, nonatomic) DWKWebView *webView;
@@ -247,8 +247,8 @@ if (216 == notchValue || 46 == notchValue) {\
     // accessToken与enterpriseId由原生提供
     NSDictionary* uploadInfo = @{@"files":methodDict[@"files"],
                                  @"type":methodDict[@"type"],
-                                 @"accessToken":@"43707c097bdd4302a8b745d72b7381b8",
-                                 @"enterpriseId":@"1324923316665978965"};
+                                 @"accessToken":methodDict[@"accessToken"],
+                                 @"enterpriseId":@"1324923316665978965"}; // 客户集成方宿主app 持有企业id
     
     [CoolCollegeApiManager OSSUploadFile:uploadInfo controller:self successCallback:^(NSArray * _Nonnull files) {
         [self onSuccess:completionHandler result:files];
