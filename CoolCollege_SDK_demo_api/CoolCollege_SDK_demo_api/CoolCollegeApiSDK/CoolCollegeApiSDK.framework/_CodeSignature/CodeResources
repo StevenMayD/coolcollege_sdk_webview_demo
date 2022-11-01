@@ -12,6 +12,62 @@
 		<data>
 		RygYnkV8eoeQX9bAUIWuDX+KqaY=
 		</data>
+		<key>CodeScan.bundle/device_scan@2x.png</key>
+		<data>
+		VLGEegzE5MgXkfWwjfsUjZy0bPQ=
+		</data>
+		<key>CodeScan.bundle/qrcode_Scan_weixin_Line@2x.png</key>
+		<data>
+		nqLJ7pXJiXs76L6HjrD7VwTdclQ=
+		</data>
+		<key>CodeScan.bundle/qrcode_scan_btn_flash_down@2x.png</key>
+		<data>
+		hNs9rrPWkEZTkSUeDavjt2MEdCM=
+		</data>
+		<key>CodeScan.bundle/qrcode_scan_btn_flash_nor@2x.png</key>
+		<data>
+		J6dagYHgs3TLE/vObktVG6xwqBg=
+		</data>
+		<key>CodeScan.bundle/qrcode_scan_btn_myqrcode_down@2x.png</key>
+		<data>
+		DmzeD4MDBN+oCRQXkvnvcOz3p74=
+		</data>
+		<key>CodeScan.bundle/qrcode_scan_btn_myqrcode_nor@2x.png</key>
+		<data>
+		fYZRpwz7RPmSxoF8Qv9l0doR0t0=
+		</data>
+		<key>CodeScan.bundle/qrcode_scan_btn_photo_down@2x.png</key>
+		<data>
+		gQxRqMffb6QcbUHDdBpICRFmAeI=
+		</data>
+		<key>CodeScan.bundle/qrcode_scan_btn_photo_nor@2x.png</key>
+		<data>
+		J92lLR3ChakqgdHp0DSdoDb5AU8=
+		</data>
+		<key>CodeScan.bundle/qrcode_scan_btn_scan_off@2x.png</key>
+		<data>
+		SSFEsH8bupsjiV7a+wWu0KwQfkI=
+		</data>
+		<key>CodeScan.bundle/qrcode_scan_full_net.png</key>
+		<data>
+		J7nq2non0Ecm2cnsdxwtWj13guU=
+		</data>
+		<key>CodeScan.bundle/qrcode_scan_light_green@2x.png</key>
+		<data>
+		tks2xKaaMDt3A3hdS5geYEHpi4s=
+		</data>
+		<key>CodeScan.bundle/qrcode_scan_part_net.png</key>
+		<data>
+		ve8AzdeEexCzOisXdFp0WGOXj70=
+		</data>
+		<key>CodeScan.bundle/qrcode_scan_titlebar_back_nor@2x.png</key>
+		<data>
+		8Zo90kdsMm6zUJz6HydcSY1bxnI=
+		</data>
+		<key>CodeScan.bundle/qrcode_scan_titlebar_back_pressed@2x.png</key>
+		<data>
+		0knCZxx4g5qTRDflEU43N2hnPWQ=
+		</data>
 		<key>CoolCollegeApiSDKImage.bundle/Root.plist</key>
 		<data>
 		jOhqEUF1/xyY+fuswiWT+ELC3dI=
@@ -43,7 +99,7 @@
 		</data>
 		<key>Headers/CoolCollegeApiSDK-Swift.h</key>
 		<data>
-		OcyGszYlnUJb8OtK51hxYioZYYY=
+		6cbpZaGLnBHD/IswDHs+qKCGdyw=
 		</data>
 		<key>Headers/CoolCollegeApiSDKHeader.h</key>
 		<data>
@@ -51,67 +107,31 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		E1kb2/SS2RVjXz9blVTL7V8ydjg=
-		</data>
-		<key>Modules/CoolCollegeApiSDK.swiftmodule/Project/arm.swiftsourceinfo</key>
-		<data>
-		oRNRGL7mXpKcG5zA21aU6rKjtJc=
+		6ybmhTtnLGa3MAlZq/5VFwu6SSw=
 		</data>
 		<key>Modules/CoolCollegeApiSDK.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
-		P+O4evfZC+NQs10sh6RY15y59Sk=
+		LN7hn9lApE4mxTjFJjQ71CVUbuI=
 		</data>
 		<key>Modules/CoolCollegeApiSDK.swiftmodule/Project/arm64.swiftsourceinfo</key>
 		<data>
-		P+O4evfZC+NQs10sh6RY15y59Sk=
-		</data>
-		<key>Modules/CoolCollegeApiSDK.swiftmodule/Project/armv7-apple-ios.swiftsourceinfo</key>
-		<data>
-		oRNRGL7mXpKcG5zA21aU6rKjtJc=
-		</data>
-		<key>Modules/CoolCollegeApiSDK.swiftmodule/Project/armv7.swiftsourceinfo</key>
-		<data>
-		oRNRGL7mXpKcG5zA21aU6rKjtJc=
-		</data>
-		<key>Modules/CoolCollegeApiSDK.swiftmodule/arm.swiftdoc</key>
-		<data>
-		QF0bS8xN2QEG3Gq27LWxKVTzF5Q=
-		</data>
-		<key>Modules/CoolCollegeApiSDK.swiftmodule/arm.swiftmodule</key>
-		<data>
-		FG8Yvu3WenX0BNZjf4dQ+tt2ILs=
+		LN7hn9lApE4mxTjFJjQ71CVUbuI=
 		</data>
 		<key>Modules/CoolCollegeApiSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		cbfSgYghuuLJI6pF6ZV5NQ6l4Fs=
+		sw/U7Drv+hEJiiVMA3Yj7/5gym4=
 		</data>
 		<key>Modules/CoolCollegeApiSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		t5wMfxQUGULRYEpryWe+CaxoG70=
+		We4peXuYXp1IJl1htB8wyChIw0k=
 		</data>
 		<key>Modules/CoolCollegeApiSDK.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		cbfSgYghuuLJI6pF6ZV5NQ6l4Fs=
+		sw/U7Drv+hEJiiVMA3Yj7/5gym4=
 		</data>
 		<key>Modules/CoolCollegeApiSDK.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		t5wMfxQUGULRYEpryWe+CaxoG70=
-		</data>
-		<key>Modules/CoolCollegeApiSDK.swiftmodule/armv7-apple-ios.swiftdoc</key>
-		<data>
-		QF0bS8xN2QEG3Gq27LWxKVTzF5Q=
-		</data>
-		<key>Modules/CoolCollegeApiSDK.swiftmodule/armv7-apple-ios.swiftmodule</key>
-		<data>
-		FG8Yvu3WenX0BNZjf4dQ+tt2ILs=
-		</data>
-		<key>Modules/CoolCollegeApiSDK.swiftmodule/armv7.swiftdoc</key>
-		<data>
-		QF0bS8xN2QEG3Gq27LWxKVTzF5Q=
-		</data>
-		<key>Modules/CoolCollegeApiSDK.swiftmodule/armv7.swiftmodule</key>
-		<data>
-		FG8Yvu3WenX0BNZjf4dQ+tt2ILs=
+		We4peXuYXp1IJl1htB8wyChIw0k=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -148,6 +168,160 @@
 			<key>hash2</key>
 			<data>
 			lE2hBZihVotvrkFyxy4BfUW9taMCO1D9x4rw592Xx+I=
+			</data>
+		</dict>
+		<key>CodeScan.bundle/device_scan@2x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			VLGEegzE5MgXkfWwjfsUjZy0bPQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			1zd+8zuhCmhGIJ0Q2Q/+k0G6Iw0N7PdGEtkE8djoXPU=
+			</data>
+		</dict>
+		<key>CodeScan.bundle/qrcode_Scan_weixin_Line@2x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			nqLJ7pXJiXs76L6HjrD7VwTdclQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			eKAb0lBq7qkUy2xCHio6p8fLAYo+pPR20X58/NISQPI=
+			</data>
+		</dict>
+		<key>CodeScan.bundle/qrcode_scan_btn_flash_down@2x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			hNs9rrPWkEZTkSUeDavjt2MEdCM=
+			</data>
+			<key>hash2</key>
+			<data>
+			tE7cXVG5W7li56zSrihbrp6pajeve3auLnTd6bG2yys=
+			</data>
+		</dict>
+		<key>CodeScan.bundle/qrcode_scan_btn_flash_nor@2x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			J6dagYHgs3TLE/vObktVG6xwqBg=
+			</data>
+			<key>hash2</key>
+			<data>
+			ACHXf2N7c90etGtenOZ/Kv2+G0JkskcpoN/7enCMAqE=
+			</data>
+		</dict>
+		<key>CodeScan.bundle/qrcode_scan_btn_myqrcode_down@2x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			DmzeD4MDBN+oCRQXkvnvcOz3p74=
+			</data>
+			<key>hash2</key>
+			<data>
+			+Ahy9+B0SuAqIHxgOfzKnDJHRgIfowu8+0rPfgj138E=
+			</data>
+		</dict>
+		<key>CodeScan.bundle/qrcode_scan_btn_myqrcode_nor@2x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			fYZRpwz7RPmSxoF8Qv9l0doR0t0=
+			</data>
+			<key>hash2</key>
+			<data>
+			XHhcXK2tx2EXlaFLv7eZEGB35phhM7UK2TSMv9nbVYE=
+			</data>
+		</dict>
+		<key>CodeScan.bundle/qrcode_scan_btn_photo_down@2x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			gQxRqMffb6QcbUHDdBpICRFmAeI=
+			</data>
+			<key>hash2</key>
+			<data>
+			EzjS3Xmeosz8ThpFXen8MGFN4hGih+/whScp96USChA=
+			</data>
+		</dict>
+		<key>CodeScan.bundle/qrcode_scan_btn_photo_nor@2x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			J92lLR3ChakqgdHp0DSdoDb5AU8=
+			</data>
+			<key>hash2</key>
+			<data>
+			3OfVq5IXsTbfl1YHEbMmxwSJc30ZXWEXqihb4GvGyUk=
+			</data>
+		</dict>
+		<key>CodeScan.bundle/qrcode_scan_btn_scan_off@2x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			SSFEsH8bupsjiV7a+wWu0KwQfkI=
+			</data>
+			<key>hash2</key>
+			<data>
+			/MrqNNJjTW4LTO9jscLV09VWBL2O/4ckT58ujLGXYq0=
+			</data>
+		</dict>
+		<key>CodeScan.bundle/qrcode_scan_full_net.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			J7nq2non0Ecm2cnsdxwtWj13guU=
+			</data>
+			<key>hash2</key>
+			<data>
+			lowLR5CPV6YtQX9CN4FEC5GtUaaeTT42QXRL7ue9nqk=
+			</data>
+		</dict>
+		<key>CodeScan.bundle/qrcode_scan_light_green@2x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			tks2xKaaMDt3A3hdS5geYEHpi4s=
+			</data>
+			<key>hash2</key>
+			<data>
+			A/LXOja2sfiRgh5AhXFiJESXAwO1s+HhO7HiTFMgMQo=
+			</data>
+		</dict>
+		<key>CodeScan.bundle/qrcode_scan_part_net.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ve8AzdeEexCzOisXdFp0WGOXj70=
+			</data>
+			<key>hash2</key>
+			<data>
+			ZzgbF53OrAeFJvv7pxSw6H6ULCsyvSffNvif2AOJ50s=
+			</data>
+		</dict>
+		<key>CodeScan.bundle/qrcode_scan_titlebar_back_nor@2x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			8Zo90kdsMm6zUJz6HydcSY1bxnI=
+			</data>
+			<key>hash2</key>
+			<data>
+			GFFoldxsNHMvGzjESge34/m8Bb/gg3ojNcXL+WUyyQY=
+			</data>
+		</dict>
+		<key>CodeScan.bundle/qrcode_scan_titlebar_back_pressed@2x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			0knCZxx4g5qTRDflEU43N2hnPWQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			ONjW6x48WQ0SP7k02nj4HJc9vNVsl9n/bTOGiLpBBEU=
 			</data>
 		</dict>
 		<key>CoolCollegeApiSDKImage.bundle/Root.plist</key>
@@ -222,11 +396,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			OcyGszYlnUJb8OtK51hxYioZYYY=
+			6cbpZaGLnBHD/IswDHs+qKCGdyw=
 			</data>
 			<key>hash2</key>
 			<data>
-			ICQmOo+btY3VcAvfQAc5Ffgj/Lgbj4F7B4/WFnI2PAw=
+			32S1a75mgt32M98Sgdx3WNWWWKvZ+8enwgki8/bKQ4g=
 			</data>
 		</dict>
 		<key>Headers/CoolCollegeApiSDKHeader.h</key>
@@ -240,169 +414,70 @@
 			5v+4NxaSCUa9q/SZ4UPK6DZpEmdMugztFNNlnWRYpz8=
 			</data>
 		</dict>
-		<key>Modules/CoolCollegeApiSDK.swiftmodule/Project/arm.swiftsourceinfo</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			oRNRGL7mXpKcG5zA21aU6rKjtJc=
-			</data>
-			<key>hash2</key>
-			<data>
-			qJ0optmzrHjJonqJ5zkNeBRiwpD95NDvzmG0OfTwEkA=
-			</data>
-		</dict>
 		<key>Modules/CoolCollegeApiSDK.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			P+O4evfZC+NQs10sh6RY15y59Sk=
+			LN7hn9lApE4mxTjFJjQ71CVUbuI=
 			</data>
 			<key>hash2</key>
 			<data>
-			mCukRmTTO/rnGDmqmCL5cNibNLQA3jTVCnpocnSMbL0=
+			5yfU9TtbKD1DitsN8oIrMLE484APBawsDMa+APS5uzc=
 			</data>
 		</dict>
 		<key>Modules/CoolCollegeApiSDK.swiftmodule/Project/arm64.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			P+O4evfZC+NQs10sh6RY15y59Sk=
+			LN7hn9lApE4mxTjFJjQ71CVUbuI=
 			</data>
 			<key>hash2</key>
 			<data>
-			mCukRmTTO/rnGDmqmCL5cNibNLQA3jTVCnpocnSMbL0=
-			</data>
-		</dict>
-		<key>Modules/CoolCollegeApiSDK.swiftmodule/Project/armv7-apple-ios.swiftsourceinfo</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			oRNRGL7mXpKcG5zA21aU6rKjtJc=
-			</data>
-			<key>hash2</key>
-			<data>
-			qJ0optmzrHjJonqJ5zkNeBRiwpD95NDvzmG0OfTwEkA=
-			</data>
-		</dict>
-		<key>Modules/CoolCollegeApiSDK.swiftmodule/Project/armv7.swiftsourceinfo</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			oRNRGL7mXpKcG5zA21aU6rKjtJc=
-			</data>
-			<key>hash2</key>
-			<data>
-			qJ0optmzrHjJonqJ5zkNeBRiwpD95NDvzmG0OfTwEkA=
-			</data>
-		</dict>
-		<key>Modules/CoolCollegeApiSDK.swiftmodule/arm.swiftdoc</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			QF0bS8xN2QEG3Gq27LWxKVTzF5Q=
-			</data>
-			<key>hash2</key>
-			<data>
-			PqjZO0Cz72QPHwwzyavVPxM67CitutLq2o4Fan/njAA=
-			</data>
-		</dict>
-		<key>Modules/CoolCollegeApiSDK.swiftmodule/arm.swiftmodule</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			FG8Yvu3WenX0BNZjf4dQ+tt2ILs=
-			</data>
-			<key>hash2</key>
-			<data>
-			Q/1Q8vUUKq+DCi02iYd5cEK2n5p/+4+nDhmN5yHBjpw=
+			5yfU9TtbKD1DitsN8oIrMLE484APBawsDMa+APS5uzc=
 			</data>
 		</dict>
 		<key>Modules/CoolCollegeApiSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			cbfSgYghuuLJI6pF6ZV5NQ6l4Fs=
+			sw/U7Drv+hEJiiVMA3Yj7/5gym4=
 			</data>
 			<key>hash2</key>
 			<data>
-			/PvQ6j4yTgDsNXskElggWuYksMIufp6Bwh3/eIFTOpw=
+			hLG5uwXLQdF9bevBjfII50xIRmbm1lb90ERsSJ5vAmw=
 			</data>
 		</dict>
 		<key>Modules/CoolCollegeApiSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			t5wMfxQUGULRYEpryWe+CaxoG70=
+			We4peXuYXp1IJl1htB8wyChIw0k=
 			</data>
 			<key>hash2</key>
 			<data>
-			70I7nUt+Ms7KgUwfIIMgwQZpsytwGD4Ou24nAJrIDJk=
+			HIly5UFWigYbo/YjP8JLrfYIOGi6w+vnU7aZxVKdL3Y=
 			</data>
 		</dict>
 		<key>Modules/CoolCollegeApiSDK.swiftmodule/arm64.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			cbfSgYghuuLJI6pF6ZV5NQ6l4Fs=
+			sw/U7Drv+hEJiiVMA3Yj7/5gym4=
 			</data>
 			<key>hash2</key>
 			<data>
-			/PvQ6j4yTgDsNXskElggWuYksMIufp6Bwh3/eIFTOpw=
+			hLG5uwXLQdF9bevBjfII50xIRmbm1lb90ERsSJ5vAmw=
 			</data>
 		</dict>
 		<key>Modules/CoolCollegeApiSDK.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			t5wMfxQUGULRYEpryWe+CaxoG70=
+			We4peXuYXp1IJl1htB8wyChIw0k=
 			</data>
 			<key>hash2</key>
 			<data>
-			70I7nUt+Ms7KgUwfIIMgwQZpsytwGD4Ou24nAJrIDJk=
-			</data>
-		</dict>
-		<key>Modules/CoolCollegeApiSDK.swiftmodule/armv7-apple-ios.swiftdoc</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			QF0bS8xN2QEG3Gq27LWxKVTzF5Q=
-			</data>
-			<key>hash2</key>
-			<data>
-			PqjZO0Cz72QPHwwzyavVPxM67CitutLq2o4Fan/njAA=
-			</data>
-		</dict>
-		<key>Modules/CoolCollegeApiSDK.swiftmodule/armv7-apple-ios.swiftmodule</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			FG8Yvu3WenX0BNZjf4dQ+tt2ILs=
-			</data>
-			<key>hash2</key>
-			<data>
-			Q/1Q8vUUKq+DCi02iYd5cEK2n5p/+4+nDhmN5yHBjpw=
-			</data>
-		</dict>
-		<key>Modules/CoolCollegeApiSDK.swiftmodule/armv7.swiftdoc</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			QF0bS8xN2QEG3Gq27LWxKVTzF5Q=
-			</data>
-			<key>hash2</key>
-			<data>
-			PqjZO0Cz72QPHwwzyavVPxM67CitutLq2o4Fan/njAA=
-			</data>
-		</dict>
-		<key>Modules/CoolCollegeApiSDK.swiftmodule/armv7.swiftmodule</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			FG8Yvu3WenX0BNZjf4dQ+tt2ILs=
-			</data>
-			<key>hash2</key>
-			<data>
-			Q/1Q8vUUKq+DCi02iYd5cEK2n5p/+4+nDhmN5yHBjpw=
+			HIly5UFWigYbo/YjP8JLrfYIOGi6w+vnU7aZxVKdL3Y=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

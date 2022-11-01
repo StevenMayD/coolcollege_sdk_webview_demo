@@ -15,10 +15,10 @@
 		8372781E2853158C003AA791 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8372781D2853158C003AA791 /* Assets.xcassets */; };
 		837278212853158C003AA791 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8372781F2853158C003AA791 /* LaunchScreen.storyboard */; };
 		837278242853158C003AA791 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 837278232853158C003AA791 /* main.m */; };
+		8391321E29110A2300954C52 /* CoolCollegeApiSDKImage.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8391321C29110A2200954C52 /* CoolCollegeApiSDKImage.bundle */; };
+		8391321F29110A5200954C52 /* CoolCollegeApiSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8391321B29110A2200954C52 /* CoolCollegeApiSDK.framework */; platformFilter = ios; };
+		8391322029110A5300954C52 /* CoolCollegeApiSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8391321B29110A2200954C52 /* CoolCollegeApiSDK.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		83EB2D3C290B6E9400203F2E /* ScanHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EB2D3A290B6E9400203F2E /* ScanHandler.m */; };
-		83FE9C6D28B78B0300300CB7 /* CoolCollegeApiSDKImage.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 83FE9C6B28B78B0300300CB7 /* CoolCollegeApiSDKImage.bundle */; };
-		83FE9C6E28B78B8200300CB7 /* CoolCollegeApiSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83FE9C6A28B78B0300300CB7 /* CoolCollegeApiSDK.framework */; platformFilter = ios; };
-		83FE9C6F28B78B8200300CB7 /* CoolCollegeApiSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 83FE9C6A28B78B0300300CB7 /* CoolCollegeApiSDK.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,7 +28,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				83FE9C6F28B78B8200300CB7 /* CoolCollegeApiSDK.framework in Embed Frameworks */,
+				8391322029110A5300954C52 /* CoolCollegeApiSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -49,10 +49,10 @@
 		837278202853158C003AA791 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		837278222853158C003AA791 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		837278232853158C003AA791 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8391321B29110A2200954C52 /* CoolCollegeApiSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CoolCollegeApiSDK.framework; sourceTree = "<group>"; };
+		8391321C29110A2200954C52 /* CoolCollegeApiSDKImage.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CoolCollegeApiSDKImage.bundle; sourceTree = "<group>"; };
 		83EB2D3A290B6E9400203F2E /* ScanHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanHandler.m; sourceTree = "<group>"; };
 		83EB2D3B290B6E9400203F2E /* ScanHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanHandler.h; sourceTree = "<group>"; };
-		83FE9C6A28B78B0300300CB7 /* CoolCollegeApiSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CoolCollegeApiSDK.framework; sourceTree = "<group>"; };
-		83FE9C6B28B78B0300300CB7 /* CoolCollegeApiSDKImage.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CoolCollegeApiSDKImage.bundle; sourceTree = "<group>"; };
 		A8128B9FBB550629EEA51420 /* Pods-CoolCollege_SDK_demo_api.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoolCollege_SDK_demo_api.debug.xcconfig"; path = "Target Support Files/Pods-CoolCollege_SDK_demo_api/Pods-CoolCollege_SDK_demo_api.debug.xcconfig"; sourceTree = "<group>"; };
 		F2FFD4E0F61E3DFFBF41D81C /* libPods-CoolCollege_SDK_demo_api.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CoolCollege_SDK_demo_api.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -62,8 +62,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83FE9C6E28B78B8200300CB7 /* CoolCollegeApiSDK.framework in Frameworks */,
 				0660A7F70FD835BBD73DC44D /* libPods-CoolCollege_SDK_demo_api.a in Frameworks */,
+				8391321F29110A5200954C52 /* CoolCollegeApiSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,8 +119,8 @@
 		8372782A285329F2003AA791 /* CoolCollegeApiSDK */ = {
 			isa = PBXGroup;
 			children = (
-				83FE9C6A28B78B0300300CB7 /* CoolCollegeApiSDK.framework */,
-				83FE9C6B28B78B0300300CB7 /* CoolCollegeApiSDKImage.bundle */,
+				8391321B29110A2200954C52 /* CoolCollegeApiSDK.framework */,
+				8391321C29110A2200954C52 /* CoolCollegeApiSDKImage.bundle */,
 			);
 			path = CoolCollegeApiSDK;
 			sourceTree = "<group>";
@@ -203,7 +203,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83FE9C6D28B78B0300300CB7 /* CoolCollegeApiSDKImage.bundle in Resources */,
+				8391321E29110A2300954C52 /* CoolCollegeApiSDKImage.bundle in Resources */,
 				837278212853158C003AA791 /* LaunchScreen.storyboard in Resources */,
 				8372781E2853158C003AA791 /* Assets.xcassets in Resources */,
 				8372781C2853158A003AA791 /* Main.storyboard in Resources */,
