@@ -11,8 +11,6 @@
 // CoolCollegeApiSDK调用
 #import <CoolCollegeApiSDK/CoolCollegeApiSDKHeader.h>
 
-#import "scan/ScanHandler.h"
-
 // 主要是用于区分是否是 刘海屏
 #define isXSeriesPhone \
 ({BOOL isLiuHaiPhone = NO;\
@@ -34,7 +32,11 @@ if (216 == notchValue || 46 == notchValue) {\
 #define kNavStatusHeight (kNavHeight+kStatusBarHeight)
 
 //#define CoolCollegeDemoH5 @"https://gsdn.coolcollege.cn/assets/h5-photo-camera/index.html" // 前端demo页
-#define CoolCollegeDemoH5 @"https://app.coolcollege.cn?token=zKpCwDQMivdtzA6VDdCWy0bdhwd7R0/HjTM63bzx3cBjyUwbws0l51sNrcFZwIkb" // 客户线上链接
+/*
+ 合富辉煌：token=zKpCwDQMivdtzA6VDdCWy0bdhwd7R0/HjTM63bzx3cBjyUwbws0l51sNrcFZwIkb       enterpriseId：1324923316665978965
+ 爱空间(熊师傅)：token=mkdT/mcuWn7J+IrhiJwSRLnru2pSHgntPKo3hO/OOaoIopPkupBBc8M+G3sF1ObrGWW/BpGLs8zp6jo2rkTRpw==    enterpriseId：1325057187583758354
+ */
+#define CoolCollegeDemoH5 @"https://app.coolcollege.cn?token=mkdT/mcuWn7J+IrhiJwSRLnru2pSHgntPKo3hO/OOaoIopPkupBBc8M+G3sF1ObrGWW/BpGLs8zp6jo2rkTRpw==" // 客户线上链接
 
 @interface ViewController () <WKNavigationDelegate, WKUIDelegate>
 @property (strong, nonatomic) DWKWebView *webView;
@@ -63,7 +65,7 @@ if (216 == notchValue || 46 == notchValue) {\
     self.webView.allowsBackForwardNavigationGestures=NO;
     self.webView.DSUIDelegate = self;
     [self.webView addJavascriptObject:self namespace:@"local"];
-    [[ScanHandler shareInstance] initHandler:self.webView vc:self];
+    [self.webView addJavascriptObject:self namespace:@"util"]; // 用于scan扫码交互
     
     if(@available(iOS 11.0, *)) {
         self.webView.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
@@ -109,6 +111,15 @@ if (216 == notchValue || 46 == notchValue) {\
             }
         }
     }
+}
+
+// 扫码交互
+-(void)scan:(id) data :(JSCallback)completionHandler{
+    [CoolCollegeApiManager scanWithController:self successCallback:^(NSString * _Nonnull result) {
+        [self onSuccess:completionHandler result:result];
+    } failCallback:^(NSString * _Nonnull message) {
+        [self onFail:completionHandler error:message];
+    }];
 }
 
 // 选择图片(相册/相机)
@@ -248,7 +259,7 @@ if (216 == notchValue || 46 == notchValue) {\
     NSDictionary* uploadInfo = @{@"files":methodDict[@"files"],
                                  @"type":methodDict[@"type"],
                                  @"accessToken":methodDict[@"accessToken"],
-                                 @"enterpriseId":@"1324923316665978965"}; // 客户集成方宿主app 持有企业id
+                                 @"enterpriseId":@"1325057187583758354"}; // 客户集成方宿主app 持有企业id
     
     [CoolCollegeApiManager OSSUploadFile:uploadInfo controller:self successCallback:^(NSArray * _Nonnull files) {
         [self onSuccess:completionHandler result:files];
