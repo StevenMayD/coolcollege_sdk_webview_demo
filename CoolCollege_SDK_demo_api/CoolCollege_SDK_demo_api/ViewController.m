@@ -41,6 +41,7 @@ if (216 == notchValue || 46 == notchValue) {\
 @interface ViewController () <WKNavigationDelegate, WKUIDelegate>
 @property (strong, nonatomic) DWKWebView *webView;
 @property (nonatomic, strong) CoolCollegeApiManager* manager;
+@property (nonatomic, copy) void(^activeChangeBlock)(NSString*);
 @end
 
 @implementation ViewController
@@ -51,6 +52,31 @@ if (216 == notchValue || 46 == notchValue) {\
     [self createWebView];
     
     self.manager = [[CoolCollegeApiManager alloc] init];
+    [self initActivityChange];
+}
+
+-(void)initActivityChange{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(hadEnterBackground)
+                                                 name:UIApplicationDidEnterBackgroundNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(hadEnterForeground)
+                                                 name:UIApplicationWillEnterForegroundNotification
+                                               object:nil];
+}
+
+-(void)hadEnterBackground{
+    if(self.activeChangeBlock){
+        self.activeChangeBlock(@"background");
+    }
+}
+
+-(void)hadEnterForeground{
+    if(self.activeChangeBlock){
+        self.activeChangeBlock(@"foreground");
+    }
 }
 
 - (void)createWebView {
@@ -66,6 +92,7 @@ if (216 == notchValue || 46 == notchValue) {\
     self.webView.DSUIDelegate = self;
     [self.webView addJavascriptObject:self namespace:@"local"];
     [self.webView addJavascriptObject:self namespace:@"util"]; // 用于scan扫码交互
+    [self.webView addJavascriptObject:self namespace:@"device"]; // 用于防切屏获取前、后台交互
     
     if(@available(iOS 11.0, *)) {
         self.webView.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
@@ -120,6 +147,15 @@ if (216 == notchValue || 46 == notchValue) {\
     } failCallback:^(NSString * _Nonnull message) {
         [self onFail:completionHandler error:message];
     }];
+}
+
+// 获取app前、后台状态
+-(void)onActiveChange:(id) data :(JSCallback)responseCallback{
+     __weak __typeof(self) weakSelf = self;
+    self.activeChangeBlock = ^(NSString * data) {
+        [weakSelf.webView callHandler:@"device.onActiveChange" arguments:@[data]];
+    };
+    [self onSuccess:responseCallback result:@"ok"];
 }
 
 // 选择图片(相册/相机)
