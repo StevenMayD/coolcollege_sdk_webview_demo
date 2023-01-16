@@ -132,6 +132,14 @@ if (216 == notchValue || 46 == notchValue) {\
                 [self scan:methodDict callback:completionHandler];
             } else if (methodName && [methodName isEqualToString:@"getLocation"]) {
                 [self getLocation:methodDict callback:completionHandler];
+            } else if (methodName && [methodName isEqualToString:@"vibration"]) {
+                [self vibration:methodDict];
+            } else if (methodName && [methodName isEqualToString:@"sendMessage"]) {
+                [self sendMessage:methodDict];
+            } else if (methodName && [methodName isEqualToString:@"copyMessage"]) {
+                [self copyMessage:methodDict];
+            } else if (methodName && [methodName isEqualToString:@"saveImage"]) {
+                [self saveImage:methodDict callback:completionHandler];
             } else {
                 NSString* errorMsg = [NSString stringWithFormat:@"%@ unimplemented", methodName];
                 [self onFail:completionHandler error:errorMsg];
@@ -156,6 +164,17 @@ if (216 == notchValue || 46 == notchValue) {\
         [weakSelf.webView callHandler:@"device.onActiveChange" arguments:@[data]];
     };
     [self onSuccess:responseCallback result:@"ok"];
+}
+
+// 获取手机系统信息
+-(void)getSystemInfo:(id) data :(JSCallback)responseCallback{
+    [self.manager getSystemInfoWithSuccessCallback:^(NSDictionary * _Nonnull info) {
+        NSData* data=[NSJSONSerialization dataWithJSONObject:info options:NSJSONWritingPrettyPrinted error:nil];
+        NSString* jsonStr=[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+        [self onSuccess:responseCallback result:jsonStr];
+    } failCallback:^(NSString * _Nonnull message) {
+        [self onFail:responseCallback error:message];
+    }];
 }
 
 // 选择图片(相册/相机)
@@ -338,6 +357,25 @@ if (216 == notchValue || 46 == notchValue) {\
     } failCallback:^(NSString * _Nonnull message) {
         [self onFail:completionHandler error:message];
     }];
+}
+
+- (void)vibration:(NSDictionary*)methodData {
+    NSNumber* duration = methodData[@"duration"];
+    float durationValue = [(duration?:@(200)) floatValue]/1000;
+    [self.manager vibrateWithDuration:durationValue];
+}
+
+- (void)sendMessage:(NSDictionary*)methodData {
+    [self.manager sendMessage:methodData[@"content"]?:@"" withController:self];
+}
+
+- (void)copyMessage:(NSDictionary*)methodData {
+    [self.manager copyMessage:methodData[@"content"]?:@"" alert:methodData[@"alert"]?:@"" withController:self];
+}
+
+- (void)saveImage:(NSDictionary*)methodData callback:(JSCallback)completionHandler {
+    [self.manager saveImage:methodData[@"url"]?:@""
+             withController:self];
 }
 
 - (void)onSuccess:(JSCallback)callback result:(id)result {
