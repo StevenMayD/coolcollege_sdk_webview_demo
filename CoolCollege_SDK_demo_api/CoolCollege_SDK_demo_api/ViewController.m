@@ -11,8 +11,6 @@
 // CoolCollegeApiSDK调用
 #import <CoolCollegeApiSDK/CoolCollegeApiSDKHeader.h>
 
-#import "scan/ScanHandler.h"
-
 // 主要是用于区分是否是 刘海屏
 #define isXSeriesPhone \
 ({BOOL isLiuHaiPhone = NO;\
@@ -34,11 +32,16 @@ if (216 == notchValue || 46 == notchValue) {\
 #define kNavStatusHeight (kNavHeight+kStatusBarHeight)
 
 //#define CoolCollegeDemoH5 @"https://gsdn.coolcollege.cn/assets/h5-photo-camera/index.html" // 前端demo页
-#define CoolCollegeDemoH5 @"https://app.coolcollege.cn?token=zKpCwDQMivdtzA6VDdCWy0bdhwd7R0/HjTM63bzx3cBjyUwbws0l51sNrcFZwIkb" // 客户线上链接
+/*
+ 合富辉煌：token=zKpCwDQMivdtzA6VDdCWy0bdhwd7R0/HjTM63bzx3cBjyUwbws0l51sNrcFZwIkb       enterpriseId：1324923316665978965
+ 爱空间(熊师傅)：token=mkdT/mcuWn7J+IrhiJwSRLnru2pSHgntPKo3hO/OOaoIopPkupBBc8M+G3sF1ObrGWW/BpGLs8zp6jo2rkTRpw==    enterpriseId：1325057187583758354
+ */
+#define CoolCollegeDemoH5 @"https://app.coolcollege.cn?token=mkdT/mcuWn7J+IrhiJwSRLnru2pSHgntPKo3hO/OOaoIopPkupBBc8M+G3sF1ObrGWW/BpGLs8zp6jo2rkTRpw==" // 客户线上链接
 
 @interface ViewController () <WKNavigationDelegate, WKUIDelegate>
 @property (strong, nonatomic) DWKWebView *webView;
 @property (nonatomic, strong) CoolCollegeApiManager* manager;
+@property (nonatomic, copy) void(^activeChangeBlock)(NSString*);
 @end
 
 @implementation ViewController
@@ -49,6 +52,31 @@ if (216 == notchValue || 46 == notchValue) {\
     [self createWebView];
     
     self.manager = [[CoolCollegeApiManager alloc] init];
+    [self initActivityChange];
+}
+
+-(void)initActivityChange{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(hadEnterBackground)
+                                                 name:UIApplicationDidEnterBackgroundNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(hadEnterForeground)
+                                                 name:UIApplicationWillEnterForegroundNotification
+                                               object:nil];
+}
+
+-(void)hadEnterBackground{
+    if(self.activeChangeBlock){
+        self.activeChangeBlock(@"background");
+    }
+}
+
+-(void)hadEnterForeground{
+    if(self.activeChangeBlock){
+        self.activeChangeBlock(@"foreground");
+    }
 }
 
 - (void)createWebView {
@@ -63,7 +91,8 @@ if (216 == notchValue || 46 == notchValue) {\
     self.webView.allowsBackForwardNavigationGestures=NO;
     self.webView.DSUIDelegate = self;
     [self.webView addJavascriptObject:self namespace:@"local"];
-    [[ScanHandler shareInstance] initHandler:self.webView vc:self];
+    [self.webView addJavascriptObject:self namespace:@"util"]; // 用于scan扫码交互
+    [self.webView addJavascriptObject:self namespace:@"device"]; // 用于防切屏获取前、后台交互
     
     if(@available(iOS 11.0, *)) {
         self.webView.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
@@ -103,12 +132,49 @@ if (216 == notchValue || 46 == notchValue) {\
                 [self scan:methodDict callback:completionHandler];
             } else if (methodName && [methodName isEqualToString:@"getLocation"]) {
                 [self getLocation:methodDict callback:completionHandler];
+            } else if (methodName && [methodName isEqualToString:@"vibration"]) {
+                [self vibration:methodDict];
+            } else if (methodName && [methodName isEqualToString:@"sendMessage"]) {
+                [self sendMessage:methodDict];
+            } else if (methodName && [methodName isEqualToString:@"copyMessage"]) {
+                [self copyMessage:methodDict];
+            } else if (methodName && [methodName isEqualToString:@"saveImage"]) {
+                [self saveImage:methodDict callback:completionHandler];
             } else {
                 NSString* errorMsg = [NSString stringWithFormat:@"%@ unimplemented", methodName];
                 [self onFail:completionHandler error:errorMsg];
             }
         }
     }
+}
+
+// 扫码交互
+-(void)scan:(id) data :(JSCallback)completionHandler{
+    [CoolCollegeApiManager scanWithController:self successCallback:^(NSString * _Nonnull result) {
+        [self onSuccess:completionHandler result:result];
+    } failCallback:^(NSString * _Nonnull message) {
+        [self onFail:completionHandler error:message];
+    }];
+}
+
+// 获取app前、后台状态
+-(void)onActiveChange:(id) data :(JSCallback)responseCallback{
+     __weak __typeof(self) weakSelf = self;
+    self.activeChangeBlock = ^(NSString * data) {
+        [weakSelf.webView callHandler:@"device.onActiveChange" arguments:@[data]];
+    };
+    [self onSuccess:responseCallback result:@"ok"];
+}
+
+// 获取手机系统信息
+-(void)getSystemInfo:(id) data :(JSCallback)responseCallback{
+    [self.manager getSystemInfoWithSuccessCallback:^(NSDictionary * _Nonnull info) {
+        NSData* data=[NSJSONSerialization dataWithJSONObject:info options:NSJSONWritingPrettyPrinted error:nil];
+        NSString* jsonStr=[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+        [self onSuccess:responseCallback result:jsonStr];
+    } failCallback:^(NSString * _Nonnull message) {
+        [self onFail:responseCallback error:message];
+    }];
 }
 
 // 选择图片(相册/相机)
@@ -248,7 +314,7 @@ if (216 == notchValue || 46 == notchValue) {\
     NSDictionary* uploadInfo = @{@"files":methodDict[@"files"],
                                  @"type":methodDict[@"type"],
                                  @"accessToken":methodDict[@"accessToken"],
-                                 @"enterpriseId":@"1324923316665978965"}; // 客户集成方宿主app 持有企业id
+                                 @"enterpriseId":@"1325057187583758354"}; // 客户集成方宿主app 持有企业id
     
     [CoolCollegeApiManager OSSUploadFile:uploadInfo controller:self successCallback:^(NSArray * _Nonnull files) {
         [self onSuccess:completionHandler result:files];
@@ -291,6 +357,25 @@ if (216 == notchValue || 46 == notchValue) {\
     } failCallback:^(NSString * _Nonnull message) {
         [self onFail:completionHandler error:message];
     }];
+}
+
+- (void)vibration:(NSDictionary*)methodData {
+    NSNumber* duration = methodData[@"duration"];
+    float durationValue = [(duration?:@(200)) floatValue]/1000;
+    [self.manager vibrateWithDuration:durationValue];
+}
+
+- (void)sendMessage:(NSDictionary*)methodData {
+    [self.manager sendMessage:methodData[@"content"]?:@"" withController:self];
+}
+
+- (void)copyMessage:(NSDictionary*)methodData {
+    [self.manager copyMessage:methodData[@"content"]?:@"" alert:methodData[@"alert"]?:@"" withController:self];
+}
+
+- (void)saveImage:(NSDictionary*)methodData callback:(JSCallback)completionHandler {
+    [self.manager saveImage:methodData[@"url"]?:@""
+             withController:self];
 }
 
 - (void)onSuccess:(JSCallback)callback result:(id)result {
