@@ -36,7 +36,8 @@ if (216 == notchValue || 46 == notchValue) {\
  合富辉煌：token=zKpCwDQMivdtzA6VDdCWy0bdhwd7R0/HjTM63bzx3cBjyUwbws0l51sNrcFZwIkb       enterpriseId：1324923316665978965
  爱空间(熊师傅)：token=mkdT/mcuWn7J+IrhiJwSRLnru2pSHgntPKo3hO/OOaoIopPkupBBc8M+G3sF1ObrGWW/BpGLs8zp6jo2rkTRpw==    enterpriseId：1325057187583758354
  */
-#define CoolCollegeDemoH5 @"https://app.coolcollege.cn?token=mkdT/mcuWn7J+IrhiJwSRLnru2pSHgntPKo3hO/OOaoIopPkupBBc8M+G3sF1ObrGWW/BpGLs8zp6jo2rkTRpw==" // 客户线上链接
+#define CoolCollegeEnterpriseId @"1324923316665978965"
+#define CoolCollegeDemoH5 @"https://app.coolcollege.cn?token=zKpCwDQMivdtzA6VDdCWy0bdhwd7R0/HjTM63bzx3cBjyUwbws0l51sNrcFZwIkb" // 客户线上链接
 
 @interface ViewController () <WKNavigationDelegate, WKUIDelegate>
 @property (strong, nonatomic) DWKWebView *webView;
@@ -168,7 +169,7 @@ if (216 == notchValue || 46 == notchValue) {\
 
 // 获取手机系统信息
 -(void)getSystemInfo:(id) data :(JSCallback)responseCallback{
-    [self.manager getSystemInfoWithSuccessCallback:^(NSDictionary * _Nonnull info) {
+    [CoolCollegeApiManager getSystemInfoWithSuccessCallback:^(NSDictionary * _Nonnull info) {
         NSData* data=[NSJSONSerialization dataWithJSONObject:info options:NSJSONWritingPrettyPrinted error:nil];
         NSString* jsonStr=[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
         [self onSuccess:responseCallback result:jsonStr];
@@ -314,7 +315,7 @@ if (216 == notchValue || 46 == notchValue) {\
     NSDictionary* uploadInfo = @{@"files":methodDict[@"files"],
                                  @"type":methodDict[@"type"],
                                  @"accessToken":methodDict[@"accessToken"],
-                                 @"enterpriseId":@"1325057187583758354"}; // 客户集成方宿主app 持有企业id
+                                 @"enterpriseId":CoolCollegeEnterpriseId}; // 客户集成方宿主app 持有企业id
     
     [CoolCollegeApiManager OSSUploadFile:uploadInfo controller:self successCallback:^(NSArray * _Nonnull files) {
         [self onSuccess:completionHandler result:files];
@@ -362,19 +363,19 @@ if (216 == notchValue || 46 == notchValue) {\
 - (void)vibration:(NSDictionary*)methodData {
     NSNumber* duration = methodData[@"duration"];
     float durationValue = [(duration?:@(200)) floatValue]/1000;
-    [self.manager vibrateWithDuration:durationValue];
+    [CoolCollegeApiManager vibrateWithDuration:durationValue];
 }
 
 - (void)sendMessage:(NSDictionary*)methodData {
-    [self.manager sendMessage:methodData[@"content"]?:@"" withController:self];
+    [CoolCollegeApiManager sendMessage:methodData[@"content"]?:@"" withController:self];
 }
 
 - (void)copyMessage:(NSDictionary*)methodData {
-    [self.manager copyMessage:methodData[@"content"]?:@"" alert:methodData[@"alert"]?:@"" withController:self];
+    [CoolCollegeApiManager copyMessage:methodData[@"content"]?:@"" alert:methodData[@"alert"]?:@"" withController:self];
 }
 
 - (void)saveImage:(NSDictionary*)methodData callback:(JSCallback)completionHandler {
-    [self.manager saveImage:methodData[@"url"]?:@""
+    [CoolCollegeApiManager saveImage:methodData[@"url"]?:@""
              withController:self];
 }
 
