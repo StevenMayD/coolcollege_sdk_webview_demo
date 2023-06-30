@@ -139,32 +139,38 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 手机震动
 /// @param duration 震动持续时间
-- (void)vibrateWithDuration:(float)duration;
++ (void)vibrateWithDuration:(float)duration;
 
 /// 复制信息并跳转微信
 /// @param content 复制信息
 /// @param controller 调用方视图控制器
-- (void)sendMessage:(NSString*)content
++ (void)sendMessage:(NSString*)content
      withController:(UIViewController*)controller;
 
 /// 复制信息至粘贴板
 /// @param content 复制信息
 /// @param controller 调用方视图控制器
-- (void)copyMessage:(NSString*)content
++ (void)copyMessage:(NSString*)content
               alert:(NSString*)alert
      withController:(UIViewController*)controller;
 
 /// 保存图片至相册
 /// @param url 图片链接
 /// @param controller 调用方视图控制器
-- (void)saveImage:(NSString*)url
++ (void)saveImage:(NSString*)url
    withController:(UIViewController*)controller;
 
 /// 获取手机系统信息
 /// @param success 成功回调 扫描识别结果
 /// @param fail 失败回调  失败信息
-- (void)getSystemInfoWithSuccessCallback:(void(^)(NSDictionary* info))success
++ (void)getSystemInfoWithSuccessCallback:(void(^)(NSDictionary* info))success
                             failCallback:(void(^)(NSString* message))fail;
+
+/// 加载独立webView
+/// @param url 网页链接
+/// @param controller 调用方视图控制器
++ (void)loadWebView:(NSString*)url
+     withController:(UIViewController*)controller;
 
 @end
 
